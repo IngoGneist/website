@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Finanzierungsrechner</title><link rel="icon" type="image/png" href="logo.png"><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="header" id="header"><nav class="nav container"><a href="index.html" class="nav__logo"><img src="logo.png" alt="Logo" class="nav__logo-img"><span class="nav__logo-text"><strong>Wärmepumpen Service</strong><small>Ingo Gneist</small></span></a><ul class="nav__menu" id="nav-menu"><li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li><li class="nav__item"><a href="#contact" class="nav__link nav__link--cta">Termin buchen</a></li></ul><button class="nav__toggle" id="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button></nav></header>
+<section class="topic" id="hero"><div class="container"><div class="section-header reveal"><h1 class="section-header__title">Finanzierungsrechner</h1><p class="section-header__desc">Lokaler Zinsrechner zur schnellen Orientierung für Ihre Finanzierung.</p></div><div class="topic__content reveal"><div class="calc-box"><h3>Zinsrechner</h3><form id="calc-zins-local" class="zins-grid"><div class="zins-inputs"><div><label for="zins-summe">Ihre Finanzierungssumme in EUR</label><input id="zins-summe" type="number" min="1000" step="1000" placeholder="z. B. 250000"></div><div><label for="zins-tilgung">Tilgung in %</label><input id="zins-tilgung" type="number" min="0.5" max="10" step="0.1" value="2.0"></div><div><label for="zins-bindung">Zinsbindung</label><select id="zins-bindung"><option value="5">5 Jahre</option><option value="10" selected>10 Jahre</option><option value="15">15 Jahre</option><option value="20">20 Jahre</option></select></div><div><label for="zins-nutzung">Nutzungsart</label><select id="zins-nutzung"><option value="eigen">Eigennutzung</option><option value="vermietet">Vermietet</option></select></div><button type="submit" class="btn btn--primary">Zins berechnen</button></div><div class="zins-output"><h4>Ihr Zins-Ergebnis</h4><div class="zins-field"><span>Fester Sollzins p.a.</span><strong id="zins-sollzins">-</strong></div><div class="zins-field"><span>Effektiver Jahreszins</span><strong id="zins-effektiv">-</strong></div><div class="zins-field"><span>Monatliche Rate</span><strong id="zins-rate">-</strong></div><div class="zins-field"><span>Kondition vom</span><strong id="zins-datum">-</strong></div></div><div class="zins-visual"><h4>Tilgung / Zinsen (Orientierung)</h4>
+<div class="zins-visual__header" style="text-align: center; margin-bottom: 1rem;">
+    <h3 id="zins-chart-title" style="font-size: 1.1rem; color: #2a3b4c; margin-bottom: 0.2rem;">Restschuld zum Periodenende: -</h3>
+    <p id="zins-chart-subtitle" style="font-size: 0.9rem; color: #7b8fa3; margin: 0;">Jahresrate: -</p>
+</div>
+<div class="zins-slider-container" style="position: relative; margin-bottom: 1.5rem; padding: 0 10px;">
+    <input type="range" id="zins-year-slider" min="1" max="10" value="10" style="width: 100%;">
+    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #7b8fa3; margin-top: 0.5rem; font-weight: bold;">
+        <span id="zins-slider-min"></span>
+        <span id="zins-slider-max"></span>
+    </div>
+    <span id="zins-slider-val" style="color: #2a3b4c; background: #f0c24f; font-weight: bold; font-size: 0.8rem; padding: 2px 8px; border-radius: 4px; position: absolute; top: -25px; transform: translateX(-50%); pointer-events: none; transition: left 0.1s;"></span>
+</div>
+<div id="zins-chart" style="width:100%; height:250px;"></div></div></form></div></div></div></section>
+<section class="contact" id="contact"><div class="container"><div class="section-header reveal"><p class="section-header__tag">Kontakt aufnehmen</p><h2 class="section-header__title">Rückruf / Termin buchen</h2></div><form class="contact-form reveal" id="contact-form" novalidate><div class="contact-form__row contact-form__row--2"><div class="form-group"><label for="vorname">Vorname <span class="required">*</span></label><input type="text" id="vorname" required></div><div class="form-group"><label for="nachname">Nachname <span class="required">*</span></label><input type="text" id="nachname" required></div></div><div class="contact-form__row contact-form__row--2"><div class="form-group"><label for="telefon">Telefon <span class="required">*</span></label><input type="tel" id="telefon" required></div><div class="form-group"><label for="email">E-Mail <span class="required">*</span></label><input type="email" id="email" required></div></div><div class="contact-form__row contact-form__row--2"><div class="form-group"><label for="thema">Thema <span class="required">*</span></label><select id="thema" required><option value="">Bitte wählen</option><option>Energieberatung</option><option>Heizungstausch</option><option>Wärmepumpen Wartung</option><option>Photovoltaik</option><option selected>Finanzierungsrechner</option><option>Unsere Partner</option><option>Über uns</option></select></div><div class="form-group"><label for="hersteller">Hersteller Wärmepumpe <span class="required">*</span></label><input type="text" id="hersteller" required></div></div><div class="form-group"><label for="typenbezeichnung">Typenbezeichnung <span class="required">*</span></label><input type="text" id="typenbezeichnung" required></div><div class="form-group form-group--full"><label for="nachricht">Nachricht</label><textarea id="nachricht" rows="4"></textarea></div><div class="form-group form-group--full form-group--checkbox"><label class="checkbox-label"><input type="checkbox" id="datenschutz" required><span>Datenschutzerklärung akzeptieren <span class="required">*</span></span></label></div><div class="contact-form__submit"><button type="submit" class="btn btn--primary btn--large" id="submit-btn"><span class="btn__text">Anfrage absenden</span><span class="btn__loader" hidden>...</span></button></div><div class="contact-form__message" id="form-message" hidden></div></form></div></section>
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <img src="logo.png" alt="Wärmepumpen Service Logo" class="footer__logo">
+                <h3>Wärmepumpen Service</h3>
+                <p>Ingo Gneist</p>
+                <p class="footer__tagline">Die qualitative Inbetriebnahme &amp; Wartung nach Herstellerangaben</p>
+            </div>
+            <div class="footer__contact">
+                <h4>Kontakt</h4>
+                <p>Am Stichkanal 53 A<br>14167 Berlin</p>
+                <p><a href="tel:+4915174422524">0151 / 744 22 524</a></p>
+                <p><a href="mailto:ingogneist@service-wärmepumpen.de">ingogneist@service-wärmepumpen.de</a></p>
+            </div>
+            <div class="footer__hours">
+                <h4>Erreichbarkeit</h4>
+                <p>Montag – Freitag<br>09:00 – 15:00 Uhr</p>
+            </div>
+            <div class="footer__links">
+                <h4>Rechtliches</h4>
+                <ul>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                    <li><a href="agb.html">AGB</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; <span id="current-year"></span> Wärmepumpen Service Ingo Gneist. Alle Rechte vorbehalten.</p>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script src="js/main.js"></script><script src="js/calculators.js"></script>
+</body></html>
